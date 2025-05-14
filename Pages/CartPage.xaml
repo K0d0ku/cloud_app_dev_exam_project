@@ -1,0 +1,62 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:cloud_app_dev_exam_project.Converters"
+             x:Class="cloud_app_dev_exam_project.Pages.CartPage"
+             Title="CartPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToStringConverter x:Key="BoolToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                <Button Text="Select All" Clicked="OnSelectAllClicked"/>
+                <Button Text="Delete Selected" Clicked="OnDeleteSelectedClicked"/>
+                <Button Text="Buy Selected" Clicked="OnBuySelectedClicked"/>
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding TotalPriceOfSelectedItems, StringFormat='Selected Total: {0:C}'}"
+                   FontSize="18"
+                   HorizontalOptions="End"
+                   Margin="0,0,10,10"/>
+
+
+            <CollectionView x:Name="CartCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10" Padding="10" BorderColor="Gray">
+                            <StackLayout>
+                                <Image Source="{Binding ListableItem.CoverImagePath}" HeightRequest="100" Aspect="AspectFit" />
+                                <Label Text="{Binding ListableItem.Name}" FontSize="18" />
+                                <Label Text="{Binding ListableItem.Price, StringFormat='Price: {0:C}'}" />
+                                <Label Text="{Binding ListableItem.Quantity, StringFormat='Available: {0}'}" />
+
+                                <Label Text="{Binding TotalPrice, StringFormat='Total: {0:C}'}" />
+
+                                <HorizontalStackLayout>
+                                    <Label Text="Qty:" VerticalOptions="Center"/>
+                                    <Label Text="{Binding Quantity}" VerticalOptions="Center" />
+                                    <Stepper Minimum="1" Maximum="{Binding ListableItem.Quantity}" 
+                                             Value="{Binding Quantity}" ValueChanged="OnQuantityChanged"/>
+                                </HorizontalStackLayout>
+
+                                <Button Text="{Binding IsSelected, Converter={StaticResource BoolToStringConverter}}"
+                                        Clicked="OnItemSelected"/>
+
+                                <HorizontalStackLayout>
+                                    <Button Text="Buy" Clicked="OnBuyClicked"/>
+                                    <Button Text="Remove" Clicked="OnRemoveClicked"/>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

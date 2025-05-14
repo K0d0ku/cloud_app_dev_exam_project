@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cloud_app_dev_exam_project.Pages.RegistrationRolePage"
+             Title="RegistrationRolePage">
+    <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+        <Label Text="Who are you?" FontSize="24" HorizontalOptions="Center" />
+
+        <Button Text="🧑‍💼 Customer" Clicked="OnCustomerClicked" />
+        <Button Text="🏬 Seller" Clicked="OnSellerClicked" />
+        <Button Text="🏭 Supplier" Clicked="OnSupplierClicked" />
+    </VerticalStackLayout>
+</ContentPage>

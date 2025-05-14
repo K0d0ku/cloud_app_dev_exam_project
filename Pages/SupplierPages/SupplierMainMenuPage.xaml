@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage 
+    x:Class="cloud_app_dev_exam_project.Pages.SupplierPages.SupplierMainMenuPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Supplier Dashboard">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label 
+                Text="Welcome, Supplier!" 
+                FontSize="28" 
+                FontAttributes="Bold" 
+                HorizontalOptions="Center" />
+
+            <CarouselView x:Name="carousel"
+                          HeightRequest="200"
+                          IsVisible="True"
+                          Margin="0,10">
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type ImageSource}">
+                        <FileImageSource File="promo1.png" />
+                        <FileImageSource File="promo2.png" />
+                        <FileImageSource File="promo3.png" />
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" Aspect="AspectFill" />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Grid Layout Buttons -->
+            <Grid ColumnSpacing="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Row 1 -->
+                <Frame Grid.Row="0" Grid.Column="0" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFB3E5FC" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnAddItemClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/add_icon.png" HeightRequest="40" />
+                            <Label Text="Add Item" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFDCEDC8" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnWarehouseClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/warehouse_icon.png" HeightRequest="40" />
+                            <Label Text="Warehouse" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="2" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFD1C4E9" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnBankClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/bank_icon.png" HeightRequest="40" />
+                            <Label Text="Bank" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Row 2 -->
+                <Frame Grid.Row="1" Grid.Column="0" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFFFE0B2" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnStatisticsClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/stats_icon.png" HeightRequest="40" />
+                            <Label Text="Statistics" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFCFD8DC" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnAnnouncementsClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/announcement_icon.png" HeightRequest="40" />
+                            <Label Text="Announcements" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="2" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFD7CCC8" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnSettingsClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/settings_icon.png" HeightRequest="40" />
+                            <Label Text="Settings" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Row 3 -->
+                <Frame Grid.Row="2" Grid.Column="0" CornerRadius="20" BorderColor="#ddd" BackgroundColor="#FFC5CAE9" HasShadow="True" HeightRequest="120" WidthRequest="120">
+                    <Grid>
+                        <Button BackgroundColor="Transparent" Clicked="OnProfileClicked" />
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True">
+                            <Image Source="Icons/profile_icon.png" HeightRequest="40" />
+                            <Label Text="Profile" FontSize="10" TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

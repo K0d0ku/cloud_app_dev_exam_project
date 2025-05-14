@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cloud_app_dev_exam_project.Pages.BankPage"
+             Title="BankPage">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+            <Button Text="Add Card" Clicked="OnAddCardClicked" />
+            <Button Text="Top Up" Clicked="OnTopUpClicked" />
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="CardCollection" IsVisible="False">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="10" Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding BankName}" FontAttributes="Bold" />
+                            <Label Text="{Binding CardNumber}" />
+                            <Label Text="{Binding Balance, StringFormat='Balance: {0:C}'}" />
+
+                            <Button Text="Delete"
+                                    BackgroundColor="Crimson"
+                                    TextColor="White"
+                                    Clicked="OnDeleteCardClicked"
+                                    CommandParameter="{Binding .}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="NoCardLabel"
+           Text="No card added yet."
+           FontAttributes="Italic"
+           HorizontalOptions="Center"
+           IsVisible="True"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

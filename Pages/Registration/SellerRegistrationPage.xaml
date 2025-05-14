@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cloud_app_dev_exam_project.Pages.SellerRegistrationPage"
+             Title="Seller Registration Page">
+    
+    <StackLayout Padding="20">
+        <Entry x:Name="FirstNameEntry" Placeholder="First Name" />
+
+        <Entry x:Name="LastNameEntry" Placeholder="Last Name" />
+
+        <Entry x:Name="CompanyNameEntry" Placeholder="Company Name" />
+
+        <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
+
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
+
+        <Picker x:Name="LocationPicker" Title="Select Location" />
+
+        <Picker x:Name="SocialsPicker" Title="Select Social Media" SelectedIndexChanged="OnSocialsPickerChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>None</x:String>
+                    <x:String>Instagram</x:String>
+                    <x:String>TikTok</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Entry x:Name="SocialLinkEntry" Placeholder="Enter Social Media Link" IsVisible="False" />
+
+        <Button Text="Register" Clicked="OnRegisterButtonClicked" />
+    </StackLayout>
+</ContentPage>

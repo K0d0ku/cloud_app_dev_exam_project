@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="cloud_app_dev_exam_project.Shell.SellerShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:cloud_app_dev_exam_project.Pages"
+    xmlns:customerpages="clr-namespace:cloud_app_dev_exam_project.Pages.CustomerPages"
+    xmlns:sellerpages="clr-namespace:cloud_app_dev_exam_project.Pages.SellerPages"
+    xmlns:supplierPages="clr-namespace:cloud_app_dev_exam_project.Pages.SupplierPages"
+    xmlns:bank="clr-namespace:cloud_app_dev_exam_project.Pages.Bank"
+    Title="Seller Shell"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="#FFA67CA9"
+    Shell.NavBarHasShadow="False">
+
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="#FFA67CA9" Padding="10" HeightRequest="80">
+            <Label Text="🏪 Seller Sidebar"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Icon="Icons/home_icon.png" Title="Main Menu">
+        <ShellContent Title="Main Menu" ContentTemplate="{DataTemplate sellerpages:SellerMainMenuPage}" Route="SellerMainMenuPage" />
+    </FlyoutItem>
+
+    <MenuItem Text="────────────" />
+
+    <MenuItem Text="Shop"
+      IconImageSource="Icons/shop_icon.png"
+      Command="{Binding GoToShopCommand}" />
+
+    <MenuItem Text="────────────" />
+
+    <FlyoutItem Icon="Icons/cart_icon.png" Title="Cart">
+        <ShellContent Title="Cart" ContentTemplate="{DataTemplate pages:CartPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="────────────" />
+
+    <MenuItem Text="Add Item"
+        IconImageSource="Icons/add_icon.png"
+        Command="{Binding GoToAddItemCommand}" />
+
+    <MenuItem Text="────────────" />
+
+    <MenuItem Text="Store"
+        IconImageSource="Icons/store_icon.png"
+        Command="{Binding GoToWarehouseItemCommand}" />
+
+    <MenuItem Text="────────────" />
+
+    <FlyoutItem Icon="Icons/bank_icon.png" Title="Bank">
+        <ShellContent Title="Bank" ContentTemplate="{DataTemplate pages:BankPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="────────────" />
+
+    <FlyoutItem Icon="Icons/stats_icon.png" Title="Statistics">
+        <ShellContent Title="Statistics" ContentTemplate="{DataTemplate pages:StatsPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="────────────" />
+
+    <FlyoutItem Icon="Icons/announcement_icon.png" Title="Announcements">
+        <ShellContent Title="Announcements" ContentTemplate="{DataTemplate sellerpages:SellerMainMenuPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="────────────" />
+
+    <FlyoutItem Icon="Icons/settings_icon.png" Title="Settings">
+        <ShellContent Title="Settings" ContentTemplate="{DataTemplate sellerpages:SellerMainMenuPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="────────────" />
+
+    <FlyoutItem Icon="Icons/profile_icon.png" Title="Profile">
+        <ShellContent Title="Profile" ContentTemplate="{DataTemplate pages:ProfilePage}" />
+    </FlyoutItem>
+</Shell>

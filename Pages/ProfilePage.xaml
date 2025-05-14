@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cloud_app_dev_exam_project.Pages.ProfilePage"
+             Title="ProfilePage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" HorizontalOptions="Center">
+
+            <Image Source="placeholder_profile.png" HeightRequest="100" WidthRequest="100"
+                   Aspect="AspectFill" BackgroundColor="LightGray" />
+
+            <Label Text="Username: unknown" FontSize="16" />
+            <Label Text="Role: unknown" FontSize="16" />
+            <Label Text="First Name: unknown" FontSize="16" />
+            <Label Text="Last Name: unknown" FontSize="16" />
+            <Label Text="Email: unknown" FontSize="16" />
+            <Label Text="Phone Number: unknown" FontSize="16" />
+            <Label Text="Password: ********" FontSize="16" />
+
+            <Button Text="Log Out"
+                    BackgroundColor="DarkRed"
+                    TextColor="White"
+                    Clicked="OnLogoutClicked"
+                    CornerRadius="8"
+                    Padding="10"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
